@@ -9,13 +9,13 @@ const client = redis.createClient({
 
 // Run a Redis command, receive response in callback.
 client.set('hello', 'world', (err, reply) => {
-  console.log('After a set function we will get the response of the server: ')
+  //After a set function we will get the response of the server:
   console.log(reply); // OK
 
   // Run a second Redis command now we know that the
   // first one completed.  Again, response in callback.
   client.get('hello', (getErr, getReply) => {
-    console.log('We can call another function to get the information inside the set function: ')
+    //'We can call another function to get the information inside the set function:
     console.log(getReply); // world
 
     // Quit client and free up resources.
