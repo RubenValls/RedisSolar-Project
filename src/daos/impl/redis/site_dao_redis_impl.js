@@ -83,9 +83,9 @@ const findById = async (id) => {
   const client = redis.getClient();
   const siteKey = keyGenerator.getSiteHashKey(id);
 
-  const siteHash = await client.hgetallAsync(siteKey);
+  const siteHash = await client.hgetallAsync(siteKey)
 
-  return (siteHash === null ? siteHash : remap(siteHash));
+  return siteHash ? remap(siteHash) : null;
 };
 
 /* eslint-disable arrow-body-style */
