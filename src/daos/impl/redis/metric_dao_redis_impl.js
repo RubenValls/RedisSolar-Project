@@ -59,7 +59,7 @@ const insertMetric = async (siteId, metricValue, metricName, timestamp) => {
   const minuteOfDay = timeUtils.getMinuteOfDay(timestamp);
 
   await client.zadd(metricKey, minuteOfDay, formatMeasurementMinute(metricValue, minuteOfDay))
-  // await client.expire(metricKey, metricExpirationSeconds);
+  await client.expire(metricKey, metricExpirationSeconds);
 
 };
 /* eslint-enable */
